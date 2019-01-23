@@ -3,11 +3,11 @@ Tag locations on map and add photos
 
 
 ## To-Do
-- [ ] Get location data
-- [ ] Tag location 
-- [ ] Saving and retrieving locations.
+- [ ] Get location data.
+- [ ] Tag location.
+- [ ] Save and retrieve locations.
 - [ ] Map.
-- [ ] Working with images.
+- [ ] images.
 
 
 ## Contributing
