@@ -7,15 +7,39 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "DataModel")
+        container.loadPersistentStores(completionHandler: {
+            storeDescription, error in
+            if let error = error {
+                fatalError("Could load data store: \(error)")
+            }
+        })
+        return container
+    }()
+    
+    lazy var managedObjectContext: NSManagedObjectContext =
+        persistentContainer.viewContext
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let tabController = window!.rootViewController
+            as! UITabBarController
+        if let tabViewControllers = tabController.viewControllers {
+            let navController = tabViewControllers[0]
+                as! UINavigationController
+            let controller = navController.viewControllers.first
+                as! CurrentLocationViewController
+            controller.managedObjectContext = managedObjectContext
+        }
+        print(applicationDocumentsDirectory)
         return true
     }
 
