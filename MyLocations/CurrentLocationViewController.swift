@@ -137,7 +137,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                          didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         print("didUpdateLocations \(newLocation)")
-        
         if newLocation.timestamp.timeIntervalSinceNow < -5 {
             return
         }

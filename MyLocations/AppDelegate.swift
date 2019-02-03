@@ -40,9 +40,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             controller.managedObjectContext = managedObjectContext
         }
         print(applicationDocumentsDirectory)
+        listenForFatalCoreDataNotifications()
         return true
     }
 
+    // MARK:- Helper methods
+    func listenForFatalCoreDataNotifications() {
+        NotificationCenter.default.addObserver(
+            forName: CoreDataSaveFailedNotification,
+            object: nil, queue: OperationQueue.main,
+            using: { notification in
+
+                let message = """
+There was a fatal error in the app and it cannot continue. Press OK to terminate the app. Sorry for the inconvenience.
+"""
+
+                let alert = UIAlertController(
+                    title: "Internal Error", message: message,
+                    preferredStyle: .alert)
+
+                let action = UIAlertAction(title: "OK",
+                                           style: .default) { _ in
+                                            let exception = NSException(
+                                                name: NSExceptionName.internalInconsistencyException,
+                                                reason: "Fatal Core Data error", userInfo: nil)
+                                            exception.raise()
+                }
+                alert.addAction(action)
+
+                let tabController = self.window!.rootViewController!
+                tabController.present(alert, animated: true,    completion: nil)
+
+        })
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
