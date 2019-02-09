@@ -189,10 +189,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WQp-CX-ewc">
+                                                    <rect key="frame" x="97" y="0.0" width="189" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="NpG-Os-sPQ"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WQp-CX-ewc" secondAttribute="trailing" id="2E5-nx-sOT"/>
                                                 <constraint firstItem="nJv-BB-6dm" firstAttribute="leading" secondItem="2Xc-VI-QgZ" secondAttribute="leadingMargin" id="KRb-Bn-Fvf"/>
+                                                <constraint firstAttribute="bottom" secondItem="WQp-CX-ewc" secondAttribute="bottom" id="bhp-Ry-OqD"/>
+                                                <constraint firstItem="WQp-CX-ewc" firstAttribute="leading" secondItem="nJv-BB-6dm" secondAttribute="trailing" id="mcS-iv-2oH"/>
                                                 <constraint firstItem="nJv-BB-6dm" firstAttribute="centerY" secondItem="2Xc-VI-QgZ" secondAttribute="centerY" id="oGx-Zi-Jeu"/>
+                                                <constraint firstItem="WQp-CX-ewc" firstAttribute="top" secondItem="2Xc-VI-QgZ" secondAttribute="top" id="yQN-Rt-H0U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -322,17 +332,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="nJv-BB-6dm" id="84Q-pL-v69"/>
                         <outlet property="addressLabel" destination="N04-mZ-ZYp" id="Sc6-mj-FIi"/>
                         <outlet property="categoryLabel" destination="CO4-DU-8ah" id="oN0-hC-f5G"/>
                         <outlet property="dateLabel" destination="hOU-6V-enn" id="lV8-Mi-AIG"/>
                         <outlet property="descriptionTextView" destination="UG0-LO-ZPV" id="UBu-Hf-7fq"/>
+                        <outlet property="imageHeight" destination="NpG-Os-sPQ" id="Kus-9d-U69"/>
+                        <outlet property="imageView" destination="WQp-CX-ewc" id="qgh-7q-RSQ"/>
                         <outlet property="latitudeLabel" destination="4Tl-wq-dhx" id="8fF-u7-Sln"/>
                         <outlet property="longitudeLabel" destination="Lpa-WC-Mcq" id="5hk-Rl-CCK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5f-as-qvo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2768" y="0.0"/>
+            <point key="canvasLocation" x="2767.5" y="0.0"/>
         </scene>
         <!--Category Picker View Controller-->
         <scene sceneID="lrR-Wg-fcp">
@@ -410,33 +423,43 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oKO-k6-2Ol">
+                                            <rect key="frame" x="16" y="2" width="52" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="WuY-Yc-Vp7"/>
+                                                <constraint firstAttribute="width" constant="52" id="z0U-Cb-467"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7S-Ig-BSC">
-                                            <rect key="frame" x="16" y="11" width="288" height="21"/>
+                                            <rect key="frame" x="76" y="7" width="243" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arj-am-BaY">
-                                            <rect key="frame" x="16" y="36" width="288" height="17"/>
+                                            <rect key="frame" x="76" y="32" width="243" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="K7S-Ig-BSC" firstAttribute="leading" secondItem="F8g-Hs-R10" secondAttribute="leadingMargin" id="23G-FT-fKs"/>
-                                        <constraint firstAttribute="bottom" secondItem="Arj-am-BaY" secondAttribute="bottom" constant="4.5" id="AIx-8Y-H2M"/>
-                                        <constraint firstItem="Arj-am-BaY" firstAttribute="leading" secondItem="F8g-Hs-R10" secondAttribute="leading" constant="16" id="HlG-91-8Jc"/>
-                                        <constraint firstAttribute="trailing" secondItem="Arj-am-BaY" secondAttribute="trailing" constant="16" id="ZES-eH-4LG"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="K7S-Ig-BSC" secondAttribute="trailing" id="Zj4-hD-tgh"/>
-                                        <constraint firstItem="K7S-Ig-BSC" firstAttribute="top" secondItem="F8g-Hs-R10" secondAttribute="topMargin" id="a6k-6a-SNi"/>
-                                        <constraint firstItem="Arj-am-BaY" firstAttribute="centerX" secondItem="F8g-Hs-R10" secondAttribute="centerX" id="nzB-HK-5kh"/>
-                                        <constraint firstItem="K7S-Ig-BSC" firstAttribute="centerX" secondItem="F8g-Hs-R10" secondAttribute="centerX" id="vXV-Mj-2LF"/>
+                                        <constraint firstAttribute="bottom" secondItem="Arj-am-BaY" secondAttribute="bottom" constant="8.5" id="AIx-8Y-H2M"/>
+                                        <constraint firstItem="Arj-am-BaY" firstAttribute="leading" secondItem="F8g-Hs-R10" secondAttribute="leading" constant="76" id="HlG-91-8Jc"/>
+                                        <constraint firstItem="oKO-k6-2Ol" firstAttribute="leading" secondItem="F8g-Hs-R10" secondAttribute="leading" constant="16" id="U1r-8M-nKx"/>
+                                        <constraint firstAttribute="trailing" secondItem="Arj-am-BaY" secondAttribute="trailing" constant="1" id="ZES-eH-4LG"/>
+                                        <constraint firstItem="K7S-Ig-BSC" firstAttribute="top" secondItem="F8g-Hs-R10" secondAttribute="topMargin" constant="-4" id="a6k-6a-SNi"/>
+                                        <constraint firstAttribute="bottom" secondItem="oKO-k6-2Ol" secondAttribute="bottom" constant="3.5" id="eFk-NO-N4L"/>
+                                        <constraint firstItem="K7S-Ig-BSC" firstAttribute="leading" secondItem="oKO-k6-2Ol" secondAttribute="trailing" constant="8" id="fXT-nr-pq6"/>
+                                        <constraint firstItem="oKO-k6-2Ol" firstAttribute="top" secondItem="F8g-Hs-R10" secondAttribute="top" constant="2" id="idW-xc-NnH"/>
+                                        <constraint firstItem="Arj-am-BaY" firstAttribute="centerX" secondItem="F8g-Hs-R10" secondAttribute="centerX" constant="37.5" id="nzB-HK-5kh"/>
+                                        <constraint firstItem="K7S-Ig-BSC" firstAttribute="centerX" secondItem="F8g-Hs-R10" secondAttribute="centerX" constant="37.5" id="vXV-Mj-2LF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="Arj-am-BaY" id="tLl-TC-UjH"/>
                                     <outlet property="descriptionLabel" destination="K7S-Ig-BSC" id="y0L-en-MVW"/>
+                                    <outlet property="photoImageview" destination="oKO-k6-2Ol" id="ttm-Fy-Ukd"/>
                                     <segue destination="fAx-7G-mZ3" kind="show" identifier="EditLocation" id="dDV-AN-Q75"/>
                                 </connections>
                             </tableViewCell>
@@ -450,7 +473,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNb-j9-NEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1819" y="0.0"/>
+            <point key="canvasLocation" x="1818.75" y="0.0"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="qVP-nX-3a2">
@@ -557,6 +580,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9Fg-ml-36L"/>
+        <segue reference="dDV-AN-Q75"/>
     </inferredMetricsTieBreakers>
 </document>
