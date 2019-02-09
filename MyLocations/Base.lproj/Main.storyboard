@@ -462,6 +462,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-J0-rVb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NnS-4v-bHt" id="f3B-4s-lP4"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -487,6 +490,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="f4o-J0-rVb" id="u7h-Mn-VYh"/>
+                        <segue destination="fAx-7G-mZ3" kind="show" identifier="EditLocation" id="9Fg-ml-36L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGH-uS-INb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -553,6 +557,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Ds-o6-fb7"/>
+        <segue reference="9Fg-ml-36L"/>
     </inferredMetricsTieBreakers>
 </document>
