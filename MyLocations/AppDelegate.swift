@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        customizeAppearance()
+        
         let tabController = window!.rootViewController
             as! UITabBarController
         if let tabViewControllers = tabController.viewControllers {
@@ -85,6 +88,19 @@ There was a fatal error in the app and it cannot continue. Press OK to terminate
 
         })
     }
+    
+    func customizeAppearance() {
+        UINavigationBar.appearance().barTintColor = UIColor.black
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white ]
+        
+        UITabBar.appearance().barTintColor = UIColor.black
+        
+        let tintColor = UIColor(red: 255/255.0, green: 238/255.0,blue: 136/255.0, alpha: 1.0)
+        
+        UITabBar.appearance().tintColor = tintColor
+    }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
