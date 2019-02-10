@@ -54,10 +54,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     @IBAction func getLocation() {
         
         let authStatus = CLLocationManager.authorizationStatus()
+        if authStatus == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        
         if authStatus == .denied || authStatus == .restricted {
             showLocationServicesDeniedAlert()
             return
         }
+        
         
         if logoVisible {
             hideLogoView()

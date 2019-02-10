@@ -251,7 +251,7 @@ extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavi
     }
     
     func pickPhoto() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        if true || UIImagePickerController.isSourceTypeAvailable(.camera) {
             showPhotoMenu()
         } else {
             choosePhotoFromLibrary()
@@ -260,12 +260,20 @@ extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavi
     
     func showPhotoMenu() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
         let actCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(actCancel)
-        let actPhoto = UIAlertAction(title: "Take Photo", style: .default, handler: nil)
+        
+        let actPhoto = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.takePhotoWithCamera()
+        })
         alert.addAction(actPhoto)
-        let actLibrary = UIAlertAction(title: "Choose from Library", style: .default, handler: nil)
+        
+        let actLibrary = UIAlertAction(title: "Choose From Library", style: .default, handler: { _ in
+            self.choosePhotoFromLibrary()
+        })
         alert.addAction(actLibrary)
+        
         present(alert, animated: true, completion: nil)
     }
     
